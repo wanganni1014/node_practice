@@ -17,6 +17,7 @@ test('练习02 中间件实现', () => {
     compose(middlewares)()
     
     const calls = mockFn.mock.calls
+    
     expect(calls.length).toBe(4);
     expect(calls[0][0]).toBe('1 start');
     expect(calls[1][0]).toBe('2 start');

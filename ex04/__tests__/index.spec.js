@@ -1,16 +1,17 @@
 const Sequelize = require('sequelize');
+const conf = require("../util/conf")
 test('练习04 完成一个一对多查询', async () => {
 
-    const sequelize = new Sequelize({
+    const sequelize = new Sequelize(conf.database, conf.username, conf.password, {
         host: 'localhost',
-        dialect: 'sqlite',
+        dialect: 'mysql',
         operatorsAliases: true,
         // 关闭执行日志
         logging: false
     });
-
+    
     // 初始化模型
-    const { initModel } = require('../index')
+    const { initModel } = require('../util/index')
     const { Product, User } = await initModel(sequelize)
 
     // 设置数据

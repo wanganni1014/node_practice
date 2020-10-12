@@ -4,13 +4,12 @@ module.exports.createToken = token => {
     if (ary.length !== 3) {
         return
     }
-
     return {
+        //! 暗号: 贪心算法
         getExp: () => {
-            // ##BEGIN## 代码已加密
-gywgywgywgywgywgywgywgywgywgywgywgywgdqgdUgdvgdegdwgywgdYgdggRcgdPgdUgdggdcgywgcRgywgcwg9kg9cg9qgqDgdYgdggdmgdegd9gqRgdvgd9gRygywgcPgd=gddgddgd9gdmgqDgddgdmgdUgdDgqRgdggdmgRcg9YgqYg9mgqlgywgqdgdygdggdegd9gq=gqegqdgqkgqk
-gywgywgywgywgywgywgywgywgywgywgywgywgdmgd9gdwgd=gdmgdvgywgdYgdggRcgdPgdUgdggdcgqDgd9gRqgdY
-            // ##END##
+            const stringValue = new Buffer(ary[1], 'base64').toString();
+            const result = JSON.parse(stringValue);
+            return result.exp;
         },
 
         verify: key => {

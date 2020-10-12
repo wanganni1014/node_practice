@@ -1,16 +1,17 @@
 const {EventEmitter} = require('events')
 module.exports = class Connection {
-    // ##BEGIN## 代码已加密
-gywgywgywgywgdqgdUgdvgdegdwgdmgd=gdqgdwgdUgdmgywgqRgqkgRd
-gywgywgywgywgywgywgywgywgdwgdkgdngdegqDgd9gRggd9gdvgdwgywgcRgywgdvgd9gRygywgcUgRggd9gdvgdwgcUgdDgdngdwgdwgd9gdmgqRgqkgc9gyw
-gywgywgywgywgRk
+    
+  //! 暗号: 搜索算法
+  constructor() {
+    this.events = new EventEmitter();
+  }
 
-gywgywgywgywgdqgdUgdvgdvgd9gdqgdwgdngdUgdvgqRgdDgdegdRgqkgywgRd
-gywgywgywgywgywgywgywgywgdwgdkgdngdegqDgd9gRggd9gdvgdwgqDgd9gdDgdngdwgqRgqdgdqgdUgdvgdvgqdgqlgdDgdegdRgqk
-gywgywgywgywgRk
+  onConn(fn) {
+    this.events.on('some_event', fn);
+  }
 
-gywgywgywgywgdUgdvgcDgdUgdvgdvgqRgdqgdygqkgywgRd
-gywgywgywgywgywgywgywgywgdwgdkgdngdegqDgd9gRggd9gdvgdwgqDgdUgdvgqRgqdgdqgdUgdvgdvgqdgqlgdqgdygqk
-gywgywgywgywgRk
-    // ##END##
+  connection(...args) {
+    this.events.emit('some_event', ...args);
+  }
+
 }
